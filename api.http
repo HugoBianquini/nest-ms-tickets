@@ -1,0 +1,30 @@
+
+GET http://localhost:3000/events
+
+###
+GET http://localhost:3000/events/313fc4d5-acc6-4bc9-8305-92b154aa8fa8
+
+###
+POST http://localhost:3000/events
+Content-Type: application/json
+
+{
+  "name": "Event New",
+  "date": "2021-03-03T00:00:00",
+  "price": 125,
+  "description": "This is a new event"
+}
+
+###
+PATCH http://localhost:3000/events/313fc4d5-acc6-4bc9-8305-92b154aa8fa8
+Content-Type: application/json
+
+{
+  "name": "Event Old",
+  "date": "2021-03-03T00:00:00",
+  "price": 125,
+  "description": "This is a new event"
+}
+
+###
+DELETE http://localhost:3000/events/313fc4d5-acc6-4bc9-8305-92b154aa8fa8

@@ -28,3 +28,17 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/events/313fc4d5-acc6-4bc9-8305-92b154aa8fa8
+
+
+SPOTS
+
+###
+POST http://localhost:3000/events/f456dd51-3f5e-436f-ac72-77a0cc7b9ed3/spots
+Content-Type: application/json
+
+{
+  "name": "A1"
+}
+
+###
+GET http://localhost:3000/events/f456dd51-3f5e-436f-ac72-77a0cc7b9ed3/spots

@@ -62,41 +62,44 @@ export class EventsService {
     }
 
     try {
-      const tickets = this.prismaService.$transaction(async (prisma) => {
-        await prisma.reservationHistory.createMany({
-          data: spots.map((spot) => ({
-            spotId: spot.id,
-            ticketKind: dto.ticker_kind,
-            email: dto.email,
-            status: TicketStatus.reserved,
-          })),
-        });
+      const tickets = await this.prismaService.$transaction(
+        async (prisma) => {
+          await prisma.reservationHistory.createMany({
+            data: spots.map((spot) => ({
+              spotId: spot.id,
+              ticketKind: dto.ticket_kind,
+              email: dto.email,
+              status: TicketStatus.reserved,
+            })),
+          });
 
-        await prisma.spot.updateMany({
-          where: {
-            id: {
-              in: spots.map((spot) => spot.id),
-            },
-          },
-          data: {
-            status: SpotStatus.reserved,
-          },
-        });
-
-        const tickets = await Promise.all(
-          spots.map((spot) =>
-            prisma.ticket.create({
-              data: {
-                spotId: spot.id,
-                ticketKind: dto.ticker_kind,
-                email: dto.email,
+          await prisma.spot.updateMany({
+            where: {
+              id: {
+                in: spots.map((spot) => spot.id),
               },
-            }),
-          ),
-        );
+            },
+            data: {
+              status: SpotStatus.reserved,
+            },
+          });
 
-        return tickets;
-      });
+          const tickets = await Promise.all(
+            spots.map((spot) =>
+              prisma.ticket.create({
+                data: {
+                  spotId: spot.id,
+                  ticketKind: dto.ticket_kind,
+                  email: dto.email,
+                },
+              }),
+            ),
+          );
+
+          return tickets;
+        },
+        { isolationLevel: Prisma.TransactionIsolationLevel.ReadCommitted },
+      );
 
       return tickets;
     } catch (err) {

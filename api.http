@@ -37,8 +37,21 @@ POST http://localhost:3000/events/f456dd51-3f5e-436f-ac72-77a0cc7b9ed3/spots
 Content-Type: application/json
 
 {
-  "name": "A1"
+  "name": "A2"
 }
 
 ###
 GET http://localhost:3000/events/f456dd51-3f5e-436f-ac72-77a0cc7b9ed3/spots
+
+
+RESERVAR
+
+###
+POST http://localhost:3000/events/f456dd51-3f5e-436f-ac72-77a0cc7b9ed3/reserve
+Content-Type: application/json
+
+{
+  "spots": ["A1", "A2"],
+  "ticket_kind": "full",
+  "email": "test@test.com"
+}

@@ -1,15 +1,18 @@
 
 GET http://localhost:3000/events
+X-API-Token: 123
 
 ###
 GET http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde
+X-API-Token: 123
 
 ###
 POST http://localhost:3000/events
 Content-Type: application/json
+X-API-Token: 123
 
 {
-  "name": "Event New",
+  "name": "Show Beatles",
   "date": "2021-03-03T00:00:00",
   "price": 125,
   "description": "This is a new event"
@@ -18,6 +21,7 @@ Content-Type: application/json
 ###
 PATCH http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde
 Content-Type: application/json
+X-API-Token: 123
 
 {
   "name": "Event Old",
@@ -28,27 +32,29 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/events/313fc4d5-acc6-4bc9-8305-92b154aa8fa8
-
+X-API-Token: 123
 
 SPOTS
 
 ###
 POST http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde/spots
 Content-Type: application/json
+X-API-Token: 123
 
 {
-  "name": "A2"
+  "name": "A3"
 }
 
 ###
 GET http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde/spots
-
+X-API-Token: 123
 
 RESERVAR
 
 ###
 POST http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde/reserve
 Content-Type: application/json
+X-API-Token: 123
 
 {
   "spots": ["A1", "A2"],

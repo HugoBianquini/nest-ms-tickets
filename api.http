@@ -2,7 +2,7 @@
 GET http://localhost:3000/events
 
 ###
-GET http://localhost:3000/events/313fc4d5-acc6-4bc9-8305-92b154aa8fa8
+GET http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde
 
 ###
 POST http://localhost:3000/events
@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:3000/events/313fc4d5-acc6-4bc9-8305-92b154aa8fa8
+PATCH http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ DELETE http://localhost:3000/events/313fc4d5-acc6-4bc9-8305-92b154aa8fa8
 SPOTS
 
 ###
-POST http://localhost:3000/events/f456dd51-3f5e-436f-ac72-77a0cc7b9ed3/spots
+POST http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde/spots
 Content-Type: application/json
 
 {
@@ -41,13 +41,13 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/events/f456dd51-3f5e-436f-ac72-77a0cc7b9ed3/spots
+GET http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde/spots
 
 
 RESERVAR
 
 ###
-POST http://localhost:3000/events/f456dd51-3f5e-436f-ac72-77a0cc7b9ed3/reserve
+POST http://localhost:3000/events/cdfb5551-5ffa-437d-871a-7a744fef7dde/reserve
 Content-Type: application/json
 
 {

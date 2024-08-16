@@ -1,0 +1,57 @@
+
+GET http://localhost:3001/shows
+
+###
+GET http://localhost:3001/shows/29136957-f5d8-41a7-9966-443dd6e0355a
+
+###
+POST http://localhost:3001/shows
+Content-Type: application/json
+
+{
+  "show_name": "Event New",
+  "date": "2021-03-03T00:00:00",
+  "price": 125,
+  "show_description": "This is a new event"
+}
+
+###
+PATCH http://localhost:3001/shows/29136957-f5d8-41a7-9966-443dd6e0355a
+Content-Type: application/json
+
+{
+  "show_name": "Event Old",
+  "date": "2021-03-03T00:00:00",
+  "price": 125,
+  "show_description": "This is a new event"
+}
+
+###
+DELETE http://localhost:3001/shows/313fc4d5-acc6-4bc9-8305-92b154aa8fa8
+
+
+SPOTS
+
+###
+POST http://localhost:3001/shows/29136957-f5d8-41a7-9966-443dd6e0355a/spots
+Content-Type: application/json
+
+{
+  "spotName": "A2"
+}
+
+###
+GET http://localhost:3001/shows/29136957-f5d8-41a7-9966-443dd6e0355a/spots
+
+
+RESERVAR
+
+###
+POST http://localhost:3001/shows/29136957-f5d8-41a7-9966-443dd6e0355a/reserve
+Content-Type: application/json
+
+{
+  "show_spots": ["A1", "A2"],
+  "ticket_kind": "full",
+  "email": "test@test.com"
+}
